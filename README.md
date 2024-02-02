@@ -21,7 +21,7 @@ Kyle Aleman, Johnny Backus, Xin Deng, Brendan Huddleston, Myyela Isaac
 ### User Stories
 
 1. Trello Board
-![Trello Board](https://trello.com/b/47nPPkMO/401-python-midterm)
+[Trello Board](https://trello.com/b/47nPPkMO/401-python-midterm)
 
 1. Title
 
