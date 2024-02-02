@@ -94,7 +94,7 @@ Draw out the entities for your project and how they are related to each other. D
 Include in your domain model the names and data types of your entities and their properties.
 ```
 
-1. Domain Model
+
    ![Miro Domain Model](assets/domain-model.jpeg)
 
 <!-- ### Using a Database? Make an Database Schema Diagram ?
