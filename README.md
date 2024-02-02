@@ -6,14 +6,15 @@ Kyle Aleman, Johnny Backus, Xin Deng, Brendan Huddleston, Myyela Isaac
 
 ### Summary of idea:
 
-
+Our vision is to develop an intelligent, user-friendly system that streamlines the setup process for lab assignments, ensuring that students can focus on learning rather than the intricacies of environment configuration. By automating the environment setup, we aim to create a seamless, error-free process that adapts to various operating systems and Python versions, guaranteeing that every participant starts from a standardized, fully-prepared platform. This project will not only enhance the efficiency and accessibility of labs but also foster a more inclusive and engaging learning experience by removing technical barriers and allowing students to dive straight into coding.
 
 ### What problem or pain point does it solve?
 
-
+The automated setup for Python labs significantly cuts down the time students spend on manual configurations, ensures a consistent coding environment across various systems, and shifts the focus from technical setup to the core learning of Python. This approach eliminates the technical hurdles and disparities, making coding more accessible and enjoyable for everyone involved. It democratizes the learning process, allowing students to dive straight into coding with a solid, uniform foundation.
 
 ### Minimum Viable Product (MVP) definition.
 
+Given a name, at least makes a readme, creates files and folders locally, makes venv.
 
 ### Wireframes 
 
@@ -21,48 +22,49 @@ Kyle Aleman, Johnny Backus, Xin Deng, Brendan Huddleston, Myyela Isaac
 ### User Stories
 
 1. Trello Board
-![Trello Board](https://trello.com/b/47nPPkMO/401-python-midterm)
-
-1. Title
-
-    - User Story sentence
-      - As a user, I want to 
-    - Feature Tasks
-      - 
-      - 
-    - Acceptance Tests
-      - 
-      - 
-      - 
-    - Estimate your User Stories: 
+[Trello Board](https://trello.com/b/47nPPkMO/401-python-midterm)
 
 
-1. Title
+1. Create a Repo
 
     - User Story sentence
-      - As a user, I want to 
+      - As a user, I want to create a repo in my class folder with a name that I give it.
     - Feature Tasks
-      - 
-      - 
+      - given a name, create a folder in the right spot
+      - make sure the name is correct and there are no other folders
     - Acceptance Tests
-      - 
-      - 
-      - 
-    - Estimate your User Stories: 
+      - Repo is created in the right spot
+      - Repo is the correct name
+    - Estimate your User Stories: Half day
 
 
-1. Title
+1. README Creation
 
     - User Story sentence
-      - As a user, I want to 
+      - As a user, I want my Repo to contain a README.md with the lab requirements.
     - Feature Tasks
-      - 
-      - 
+      - add a readme
+      - add content to the readme
     - Acceptance Tests
-      - 
-      - 
-      - 
-    - Estimate your User Stories: 
+      - repo has readme
+      - readme has the correct content
+    - Estimate your User Stories: half day
+
+
+
+
+1. Virtual Environment
+
+    - User Story sentence
+      - As a user, I want to make a virtual environment with a repo.
+    - Feature Tasks
+      - instantiate a virtual environment for that repo
+      - activate the environment 
+    - Acceptance Tests
+      - the virtual env is created
+      - the virtual env activated
+    - Estimate your User Stories: half day
+
 
 1. Title
 
@@ -98,7 +100,6 @@ Draw out the entities for your project and how they are related to each other. D
 
 Include in your domain model the names and data types of your entities and their properties.
 ```
-
 
 1. Domain Model
 ![Miro Domain Model]()
