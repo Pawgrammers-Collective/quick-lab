@@ -1,4 +1,4 @@
-# lab-automation
+# quick-lab
 
 ## Group Members
 
@@ -16,84 +16,77 @@ The automated setup for Python labs significantly cuts down the time students sp
 
 Given a name, at least makes a readme, creates files and folders locally, makes venv.
 
-### Wireframes 
+### Wireframes
 
+![Wireframe](assets/wireframe.jpeg)
 
 ### User Stories
 
 1. Trello Board
-[Trello Board](https://trello.com/b/47nPPkMO/401-python-midterm)
-
+   [Trello Board](https://trello.com/b/47nPPkMO/401-python-midterm)
 
 1. Create a Repo
 
-    - User Story sentence
-      - As a user, I want to create a repo in my class folder with a name that I give it.
-    - Feature Tasks
-      - given a name, create a folder in the right spot
-      - make sure the name is correct and there are no other folders
-    - Acceptance Tests
-      - Repo is created in the right spot
-      - Repo is the correct name
-    - Estimate your User Stories: Half day
-
+   - User Story sentence
+     - As a user, I want to create a repo in my class folder with a name that I give it.
+   - Feature Tasks
+     - given a name, create a folder in the right spot
+     - make sure the name is correct and there are no other folders
+   - Acceptance Tests
+     - Repo is created in the right spot
+     - Repo is the correct name
+   - Estimate your User Stories: Half day
 
 1. README Creation
 
-    - User Story sentence
-      - As a user, I want my Repo to contain a README.md with the lab requirements.
-    - Feature Tasks
-      - add a readme
-      - add content to the readme
-    - Acceptance Tests
-      - repo has readme
-      - readme has the correct content
-    - Estimate your User Stories: half day
-
-
-
+   - User Story sentence
+     - As a user, I want my Repo to contain a README.md with the lab requirements.
+   - Feature Tasks
+     - add a readme
+     - add content to the readme
+   - Acceptance Tests
+     - repo has readme
+     - readme has the correct content
+   - Estimate your User Stories: Half day
 
 1. Virtual Environment
 
-    - User Story sentence
-      - As a user, I want to make a virtual environment with a repo.
-    - Feature Tasks
-      - instantiate a virtual environment for that repo
-      - activate the environment 
-    - Acceptance Tests
-      - the virtual env is created
-      - the virtual env activated
-    - Estimate your User Stories: half day
+   - User Story sentence
+     - As a user, I want to make a virtual environment with a repo.
+   - Feature Tasks
+     - instantiate a virtual environment for that repo
+     - activate the environment
+   - Acceptance Tests
+     - the virtual env is created
+     - the virtual env activated
+   - Estimate your User Stories: Half day
 
+1. Github Create
 
-1. Title
+   - User Story sentence
+     - As a user I want the script to use my github to create a new github repo given a name.
+   - Feature Tasks
+     - script makes a repo in github
+     - returns the github link, to link the local repo
+   - Acceptance Tests
+     - github creates a repo with the correct name.
+     - a link is returned
+   - Estimate your User Stories: One Day
 
-    - User Story sentence
-      - As a user, I want to 
-    - Feature Tasks
-      - 
-      - 
-    - Acceptance Tests
-      - 
-      - 
-      - 
-    - Estimate your User Stories: 
+1. Github link
 
-1. Title
+   - User Story sentence
+     - As a user, I want to automatically link my local and remote repo
+   - Feature Tasks
+     - Utilizing Playwright, a new GitHub remote repo will be created under the user’s account with the desired name
+     - The script will `git add`, `git commit` and `remote add origin` from the local repo to remote. Linking the two
+   - Acceptance Tests
+     - Successful remote repo creation
+     - Successful commit from local repo
+     - Successful linking of the two
+   - Estimate your User Stories: One day
 
-    - User Story sentence
-      - As a user, I want to 
-    - Feature Tasks
-      - 
-      - 
-    - Acceptance Tests
-      - 
-      - 
-      - 
-    - Estimate your User Stories: 
-
-
-### Domain Modeling 
+### Domain Modeling
 
 ```
 Draw out the entities for your project and how they are related to each other. Determine the relationships between the functions/methods and entities of your app.
@@ -102,8 +95,7 @@ Include in your domain model the names and data types of your entities and their
 ```
 
 1. Domain Model
-![Miro Domain Model]()
-
+   ![Miro Domain Model](assets/domain-model.jpeg)
 
 <!-- ### Using a Database? Make an Database Schema Diagram ?
 
@@ -122,8 +114,3 @@ Also, include for each separate collection:
 1. An indication if this collection is associated with another collection.
 
 Include this diagram in your readme, accompanied by an explanation of each data model and it’s responsibility in the application. -->
-
-Diagram?
-
-
-
