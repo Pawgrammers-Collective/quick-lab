@@ -11,12 +11,12 @@ Every person on your team is an asset. This is your chance to discover the hidde
 1. What are the key strengths of each person on the team?
    - Johnny: Equally bad at all aspects of coding, but reasonably good at reading docs and learning API req’s.
    - Kyle: Efficient reading of code and breaking down logic
-   - Brendan: CSS, Work ethic
+   - Brendan: Work ethic
    - Xin: Turns in things, also equally bad at coding here, can help with syntax check
    - MJ: Reliable, resilient, good at coding 
 1. How can you best utilize these strengths in the execution of your project?
 
-- To optimize the team's performance in the project, Johnny's general coding skills can be used for tasks that require basic coding knowledge, while Brendan’s proficiency in CSS can be applied to front-end development, and his strong work ethic ensures commitment to tasks. Kyle’s ability to read code and breakdown logic would also be helpful in catching errors in our app functionality. Xin's reliability in meeting deadlines should be utilized for maintaining project timelines. MJ’s reliability, resiliency, and coding skills would be used for completion of tasks and go-to for questions. 
+- To optimize the team's performance in the project, Johnny's general coding skills can be used for tasks that require basic coding knowledge, while Brendan’s strong work ethic ensures commitment to tasks. Kyle’s ability to read code and breakdown logic would also be helpful in catching errors in our app functionality. Xin's reliability in meeting deadlines should be utilized for maintaining project timelines. MJ’s reliability, resiliency, and coding skills would be used for completion of tasks and go-to for questions. 
 
 1. In which professional competencies do you each want to develop greater strength?
 
