@@ -19,7 +19,7 @@ def virtual_env_setup(directory):
     # activates .venv if the user is on pc.
     elif pc_type == "Windows":
 
-        # 
+        
 
         bash_path = r"C:\Program Files\Git\usr\bin\bash.exe"
 
