@@ -18,7 +18,7 @@ def main():
 
     directory=os.path.join(f'{current_directory}/', f'{repo_name}')
 
-    init_local_repo(directory, repo_name)
+    init_local_repo(current_directory, repo_name)
 
     create_readme(directory)
 

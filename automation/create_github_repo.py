@@ -9,6 +9,11 @@ import subprocess
 
 
 def create_github_repo(repo_name, username, directory):
+    subprocess.run(['git', 'add', "."], cwd=f"{directory}")
+
+    subprocess.run(['git', 'commit', '-m', '"First Commit"'], cwd=f"{directory}")
+
+
     subprocess.run(["gh", "repo", "create", repo_name, "--public", f"--source=.", "--remote=upstream"], cwd=f"{directory}")
     subprocess.run(["git", "remote", "add", "origin", f"https://github.com/{username}/{repo_name}.git"], cwd=f"{directory}")
     subprocess.run(["git", "branch", "-M", "main"], cwd=f"{directory}")
