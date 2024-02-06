@@ -34,3 +34,8 @@ def init_local_repo(directory, name):
 
 
 
+ # Create module folder
+    module_name = name.replace("-", "_")  # Replace dashes with underscores
+    module_folder = os.path.join(repo_path, module_name)
+    os.makedirs(module_folder)
+
