@@ -34,4 +34,4 @@ def create_readme():
         readme.write(readme_template)
 
 # Call the function to create the README
-create_readme()
+# create_readme()

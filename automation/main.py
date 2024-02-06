@@ -1,26 +1,23 @@
-from create_local_repo import init_local_repo
-from create_gitignore import create_gitignore
-from virtual_env import virtual_env_setup
-from create_github_repo import create_github_repo
+from automation.create_local_repo import init_local_repo
+from automation.create_gitignore import create_gitignore
+from automation.virtual_env import virtual_env_setup
+from automation.create_github_repo import create_github_repo
 import os
 from rich.console import Console
-from create_readme import create_readme
+from automation.create_readme import create_readme
 
 def main():
     
-    current_directory = os.path.abspath(os.curdir)
+    os.path.abspath(os.curdir)
+    current_directory=os.chdir('..')
+    username = input("Enter your GitHub username: ")
     repo_name = input("Enter the repository name: ")
 
-    repo_name=init_local_repo(current_directory, repo_name)
-
-    if repo_name is None:
-        console=Console()
-        console.print("Repository Name Needed", style="bold red" )
-        return
-    
-    directory=os.path.join(current_directory, repo_name)
 
 
+    directory=os.path.join(f'{current_directory}/', f'{repo_name}')
+
+    init_local_repo(current_directory, repo_name)
 
     create_readme()
 
@@ -29,7 +26,7 @@ def main():
     create_gitignore(directory)
 
 
-    create_github_repo()
+    create_github_repo(repo_name, username)
 
 if __name__ == "__main__":
     main()

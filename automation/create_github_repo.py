@@ -4,11 +4,11 @@ import subprocess
 
 # print("I'm alive")
 
-username = ""
-repo_name = ""
+# username = ""
+# repo_name = ""
 
 
-def create_github_repo():
+def create_github_repo(repo_name, username):
     subprocess.run(["gh", "repo", "create", repo_name, "--public", f"--source=.", "--remote=upstream"], cwd=f"../{repo_name}")
     subprocess.run(["git", "remote", "add", "origin", f"https://github.com/{username}/{repo_name}.git"], cwd=f"../{repo_name}")
     subprocess.run(["git", "branch", "-M", "main"], cwd=f"../{repo_name}")
