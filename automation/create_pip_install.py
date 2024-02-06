@@ -1,6 +1,6 @@
 import subprocess
 
-def create_pip_install(dependencies):
+def create_pip_install(dependencies, directory):
     """
     Install pip dependencies and create requirements.txt.
 
@@ -9,7 +9,7 @@ def create_pip_install(dependencies):
     """
     # Install dependencies
     for dependency in dependencies:
-        subprocess.run(['pip', 'install'] + dependency)
+        subprocess.run(['pip', 'install', dependency], cwd=directory)
 
     # Create requirements.txt
-    subprocess.run(['pip', 'freeze', '>', 'requirements.txt'], shell=True)
+    subprocess.run(['pip', 'freeze', '>', 'requirements.txt'], shell=True, cwd=directory)
