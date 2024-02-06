@@ -11,8 +11,7 @@ import subprocess
 
 
 def init_local_repo(directory, name):
-#Make the new folder with the inputted name
-
+# Make the new folder with the inputted name
 # If directory doesn't already exists make
     if not os.path.exists(f"{directory}/{name}"):
         os.makedirs(f"{directory}/{name}")
@@ -27,4 +26,5 @@ def init_local_repo(directory, name):
             return 
 
 # run git init command in newly made directory
-    subprocess.run(['git', 'init'], cwd=f"{directory}/{name}")
+    completed_process_confirm = subprocess.run(['git', 'init'], cwd=f"{directory}/{name}")
+    return str(completed_process_confirm)

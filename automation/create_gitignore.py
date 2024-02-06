@@ -186,3 +186,5 @@ cython_debug/
 # Creates a gitignore in the user's desired directory with the gitignore contents
   with open(f'{directory}/.gitignore', 'w') as gitignore:
     gitignore.write(gitignore_template)
+
+  return os.path.exists(f'{directory}/.gitignore')
