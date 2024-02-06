@@ -35,15 +35,30 @@ def init_local_repo(directory, name):
 
 
  # Create module folder
-    module_name = name.replace("-", "_")  
+    if "-" in name:
+        module_name = name.replace("-", "_")
+    else:
+        module_name = name    
     module_folder = os.path.join(repo_path, module_name)
     os.makedirs(module_folder)
 
 # Create module script file
     module_script_file = os.path.join(module_folder, f"{module_name}.py")
-    open(module_script_file, 'a').close() 
+    with open(module_script_file, 'w') as module_file_content:
+        module_file_content.write(f'def {module_name}():\n pass\n')
 
 # Create tests folder
     tests_folder = os.path.join(repo_path, "tests")
     os.makedirs(tests_folder)
+
+# Create __init__.py file in tests folder
+    init_py_file = os.path.join(tests_folder, "__init__.py")
+    with open(init_py_file, 'a'):
+        pass
+ 
+
+# Create test file for the module
+    test_file = os.path.join(tests_folder, f"test_{module_name}.py")
+    with open(test_file, 'w') as test_file_content:
+        test_file_content.write(f'from {module_name}.{module_name} import {module_name} ')
 
