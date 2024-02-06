@@ -60,5 +60,6 @@ def init_local_repo(directory, name):
 # Create test file for the module
     test_file = os.path.join(tests_folder, f"test_{module_name}.py")
     with open(test_file, 'w') as test_file_content:
+        test_file_content.write(f'import pytest\n')
         test_file_content.write(f'from {module_name}.{module_name} import {module_name} ')
 
