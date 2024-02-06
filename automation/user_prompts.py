@@ -27,8 +27,6 @@ def user_prompts():
 
         exit_question = str(input("Do you want to add more dependencies(y/n): "))
 
-        print(exit_question)
-
         if exit_question == "n":
             pip_questions = False
 
