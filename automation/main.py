@@ -8,9 +8,9 @@ from automation.create_readme import create_readme
 import subprocess
 
 def main():
-    
-    os.path.abspath(os.curdir)
-    current_directory=os.chdir('..')
+        
+    # os.chdir('../')
+    current_directory=os.path.abspath(f'../{os.curdir}')
     username = input("Enter your GitHub username: ")
     repo_name = input("Enter the repository name: ")
 
