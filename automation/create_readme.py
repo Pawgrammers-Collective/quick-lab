@@ -1,4 +1,4 @@
-def create_readme():
+def create_readme(directory):
     readme_template = """
 # LAB - Class xx
 ## Project: Project Name Here
@@ -30,7 +30,7 @@ def create_readme():
 - Describe any tests that were not completed or skipped
 """
 
-    with open('README.md', 'w') as readme:
+    with open(f'{directory}/README.md', 'w') as readme:
         readme.write(readme_template)
 
 # Call the function to create the README
