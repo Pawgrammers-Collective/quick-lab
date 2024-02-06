@@ -21,7 +21,7 @@ def init_local_repo(directory, name):
         print("Directory exists already")
         print("Would you like to still initialize a local repository in that directory? (y/n)")
         user_choice = input("> ")
-        if user_choice.lower == "y":
+        if user_choice.lower() == "y":
             subprocess.run(['git', 'init'], cwd=f"{directory}/{name}")
         else:
             return 
