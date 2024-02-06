@@ -43,3 +43,7 @@ def init_local_repo(directory, name):
     module_script_file = os.path.join(module_folder, f"{module_name}.py")
     open(module_script_file, 'a').close() 
 
+# Create tests folder
+    tests_folder = os.path.join(repo_path, "tests")
+    os.makedirs(tests_folder)
+
