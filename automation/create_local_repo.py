@@ -35,7 +35,11 @@ def init_local_repo(directory, name):
 
 
  # Create module folder
-    module_name = name.replace("-", "_")  # Replace dashes with underscores
+    module_name = name.replace("-", "_")  
     module_folder = os.path.join(repo_path, module_name)
     os.makedirs(module_folder)
+
+# Create module script file
+    module_script_file = os.path.join(module_folder, f"{module_name}.py")
+    open(module_script_file, 'a').close() 
 
