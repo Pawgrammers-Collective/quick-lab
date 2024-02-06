@@ -33,5 +33,3 @@ def create_readme(directory):
     with open(f'{directory}/README.md', 'w') as readme:
         readme.write(readme_template)
 
-# Call the function to create the README
-# create_readme()

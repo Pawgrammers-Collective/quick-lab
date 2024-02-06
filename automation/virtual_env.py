@@ -19,7 +19,7 @@ def virtual_env_setup(directory):
     elif pc_type == "Windows":
 
         
-
+        # This might have to change because it might be different for each user
         bash_path = r"C:\Program Files\Git\usr\bin\bash.exe"
 
         subprocess.run(["source", ".venv/Scripts/activate"], cwd=directory, executable= bash_path)
@@ -27,6 +27,3 @@ def virtual_env_setup(directory):
     else:
         pass
         #throw an error
-
-# delete .venv in test_midterm_project. If running virtual_env.py creates a .venv in test_midterm_project, then we know it worked.
-# virtual_env_setup("../test_midterm_project/")
