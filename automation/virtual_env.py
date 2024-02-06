@@ -12,7 +12,6 @@ def virtual_env_setup(directory):
 
     # activates .venv if the user is on mac.
     if pc_type == "Darwin":
-
         subprocess.run(["source", ".venv/bin/activate"], cwd=directory, executable='/bin/bash')
     
     # activates .venv if the user is on pc.

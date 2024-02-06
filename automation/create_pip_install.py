@@ -12,4 +12,4 @@ def create_pip_install(dependencies, directory):
         subprocess.run(['pip', 'install', dependency], cwd=directory)
 
     # Create requirements.txt
-    subprocess.run(['pip', 'freeze', '>', 'requirements.txt'], shell=True, cwd=directory)
+    subprocess.run(['pip', 'freeze', '>', 'requirements.txt'], cwd=directory)
