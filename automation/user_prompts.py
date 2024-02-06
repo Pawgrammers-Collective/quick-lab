@@ -1,4 +1,5 @@
 import os
+from automation.create_pip_install import display_pip_installs
 
 
 def user_prompts():
@@ -24,12 +25,15 @@ def user_prompts():
 
         pip = input("Enter a dependency that you want to install: ")
         pip_installs.append(pip)
+            # Display table of pip installs
+        display_pip_installs(pip_installs)
+
+
 
         exit_question = str(input("Do you want to add more dependencies(y/n): "))
 
         if exit_question == "n":
             pip_questions = False
-
 
     #Finds the users current directory parents directory
     current_directory=os.path.abspath(f'../{os.curdir}')
