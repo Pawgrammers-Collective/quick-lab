@@ -1,5 +1,6 @@
 import os
 from automation.create_pip_install import create_pip_install, display_pip_installs
+from automation.check_gh_stuff import check_gh_repo_exists, check_gh_user
 from rich.console import Console
 
 def user_prompts():
@@ -19,11 +20,21 @@ def user_prompts():
 
     # User prompts
     console = Console()
-    console.print("\nEnter your GitHub username:", style="orange1")
-    username = input("> ")
+    user_exists = False
+    while user_exists is False:
+        console.print("\nEnter your GitHub username:", style="orange1")
+        username = input("> ")
+        user_exists = check_gh_user(username)
+        if user_exists is False:
+            console.print("This username does not exist!", style="bold red")
     
-    console.print("\nEnter the repository name:", style="magenta1")
-    repo_name = input("> ")
+    repo_exists = True
+    while repo_exists is True:
+        console.print("\nEnter the repository name:", style="magenta1")
+        repo_name = input("> ")
+        repo_exists = check_gh_repo_exists(username, repo_name)
+        if repo_exists is True:
+            console.print("This remote repository is already made!", style="bold red")
 
     # Prompt for installing pip dependencies
     console.print("\nDo you want to install any pip dependencies before proceeding? (y/n):", style="green3")
