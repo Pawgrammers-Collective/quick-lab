@@ -1,4 +1,5 @@
 def create_readme(directory):
+    import os
     readme_template = """
 # LAB - Class xx
 ## Project: Project Name Here
@@ -33,3 +34,4 @@ def create_readme(directory):
     with open(f'{directory}/README.md', 'w') as readme:
         readme.write(readme_template)
 
+    return os.path.exists(f'{directory}/README.md')
