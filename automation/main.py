@@ -8,9 +8,6 @@ from automation.create_readme import create_readme
 from automation.readings_scraper.readings_scraper import create_reading_assignment
 from rich.console import Console
 from rich.prompt import Prompt
-
-
-
 def main():
     console = Console()
     while True:
@@ -27,6 +24,18 @@ def main():
     
     
 def create_lab_repo(): 
+    console = Console()
+    while True:
+        console.print("\n1. [bold green]Create Lab Repo[/bold green]\n2. [bold blue]Create Reading Assignment[/bold blue]\n3. [bold red]Exit[/bold red]")
+        choice = Prompt.ask("Choose a task (Enter the number)", choices=['1', '2', '3'], default='3')
+        if choice == '1':
+            create_lab_repo()
+        elif choice == '2':
+            class_num = Prompt.ask("Which class number would you like to create a reading assignment for?")
+            create_reading_assignment(class_num)
+        else:
+            break
+def create_lab_repo():
     # Function calls
     current_directory, directory, username, repo_name, pip_installs = user_prompts()
     init_local_repo(current_directory, repo_name)
@@ -35,7 +44,5 @@ def create_lab_repo():
     create_pip_install(pip_installs, directory)
     create_gitignore(directory)
     create_github_repo(repo_name, username, directory)
-
-
 if __name__ == "__main__":
     main()
