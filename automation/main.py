@@ -5,7 +5,7 @@ from automation.create_github_repo import create_github_repo
 from automation.user_prompts import user_prompts
 from automation.create_pip_install import create_pip_install
 from automation.create_readme import create_readme
-from automation.readings_scraper.readings_scraper import create_reading_assignment
+from readings_scraper.readings_scraper import create_reading_assignment
 from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
 from rich.console import Console
 from rich.prompt import Prompt
