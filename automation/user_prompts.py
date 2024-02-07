@@ -1,5 +1,5 @@
 import os
-from automation.create_pip_install import create_pip_install, display_pip_installs
+from create_pip_install import display_pip_installs
 from rich.console import Console
 
 def user_prompts():
