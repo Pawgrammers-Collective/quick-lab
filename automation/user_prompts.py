@@ -53,20 +53,6 @@ def user_prompts():
         # Joins the directory and the repo name
         directory = os.path.join(f'{current_directory}/', f'{repo_name}')
 
-    # Prompt for choosing the directory
-    console.print("\nDo you want to choose the directory for the repository? (y/n):", style="green3")
-    choose_directory = input("> ")
-
-    if choose_directory.lower() == "y":
-        current_directory = filedialog.askdirectory(title="Choose directory for repository")
-        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
-
-    else:
-        # Finds the user's current directory parent's directory
-        current_directory = os.path.abspath(f'../{os.curdir}')
-        # Joins the directory and the repo name
-        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
-
     # Prompt for installing pip dependencies
     console.print("\nDo you want to install any pip dependencies before proceeding? (y/n):", style="green3")
     install_pip_dependencies = input("> ")
