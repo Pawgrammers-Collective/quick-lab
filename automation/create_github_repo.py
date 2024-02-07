@@ -16,6 +16,6 @@ def create_github_repo(repo_name, username, directory):
 
     # Print success message
     console = Console()
-    console.print("\nSuccessfully created and linked the local repository to the remote repository on GitHub.\n", style="bold green")
-    console.print("\nDon't forget to activate the virtual environment in your new .\n", style="bold red")
+    console.print("\nSuccessfully created and linked the local repository to the remote repository on GitHub.", style="bold green")
+    console.print("Don't forget to activate the virtual environment in your new repo!\n", style="bold green")
 

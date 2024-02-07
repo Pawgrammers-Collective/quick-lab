@@ -1,6 +1,5 @@
 from automation.create_local_repo import init_local_repo
 from automation.create_gitignore import create_gitignore
-from automation.virtual_env import virtual_env_setup
 from automation.create_github_repo import create_github_repo
 from automation.user_prompts import user_prompts
 from automation.create_pip_install import create_pip_install
@@ -20,7 +19,8 @@ def main():
         if choice == '1':
             create_lab_repo()
         elif choice == '2':
-            class_num = Prompt.ask("Which class number would you like to create a reading assignment for?")
+            console.print("Which class number would you like to create a reading assignment for?", style = "dodger_blue1")
+            class_num = input("> ")
             create_reading_assignment(class_num)
         else:
             break
@@ -31,7 +31,6 @@ def create_lab_repo():
     directory, username, repo_name, pip_installs = user_prompts()
     init_local_repo(directory, repo_name)
     create_readme(directory)
-    virtual_env_setup(directory)
     create_pip_install(pip_installs, directory)
     create_gitignore(directory)
     create_github_repo(repo_name, username, directory)
