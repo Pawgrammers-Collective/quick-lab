@@ -34,31 +34,30 @@ def create_reading_file(title, class_num, questions, readings, videos, bookmarks
     create_template (title, questions, readings, videos, bookmarks, file_path)
 
 
-def create_template(title, question_print, readings, videos, bookmarks, file_path):
+def create_template(title, questions, readings, videos, bookmarks, file_path):
 
-        # Define the template
+    # Define the template
     template = f"""
-    # {title}
+# {title}
 
-    Description of the assignment
+Description of the assignment
 
-    ## Reading
-    {readings}
-    
-    ## Videos
-    {videos}
+## Reading\n
+{readings.strip()}
 
-    ## Bookmark and Review
-    {bookmarks}
-    
-    ## Reading Questions
-    {question_print}
+## Videos\n
+{videos.strip()}
 
-    ## Things I want to know more about
+## Bookmark and Review\n
+{bookmarks.strip()}
 
-    >*Answer*
-    """
-    # file_path = os.path.join(f'{folder_path}/{file_name}')
+## Reading Questions\n
+{questions.strip()}
+
+## Things I want to know more about
+
+>*Answer*
+"""
 
     with open(file_path, "w") as file:
         file.write(f"# {template}")
