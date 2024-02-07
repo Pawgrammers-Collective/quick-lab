@@ -21,17 +21,24 @@ def create_template(title, questions, readings, videos, bookmarks):
 
     # Define the template
     template = f"""
-# {title}\n
-Description of the assignment\n
+# {title}
+
+Description of the assignment
+
 ## Reading\n
-{readings}
+{readings.strip()}
+
 ## Videos\n
-{videos}
+{videos.strip()}
+
 ## Bookmark and Review\n
-{bookmarks}
+{bookmarks.strip()}
+
 ## Reading Questions\n
 {questions.strip()}
-\n## Things I want to know more about\n
+
+## Things I want to know more about
+
 >*Answer*
 """
     
