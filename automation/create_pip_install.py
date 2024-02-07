@@ -26,9 +26,7 @@ def display_pip_installs(pip_installs):
         pip_installs (list): List of pip installs.
     """
     # Create a new table
-    table = Table(show_header=True, header_style="bold magenta")
-
-    # Add columns to the table
+    table = Table(title="Pip Installs")
     table.add_column("#", style="dim")
     table.add_column("Dependency")
 
@@ -38,4 +36,5 @@ def display_pip_installs(pip_installs):
 
     # Print the table
     console = Console()
+    console.clear()
     console.print(table)
