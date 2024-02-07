@@ -1,5 +1,6 @@
 import os
-from create_pip_install import display_pip_installs
+from tkinter import filedialog
+from automation.create_pip_install import display_pip_installs
 from rich.console import Console
 
 def user_prompts():
@@ -7,6 +8,8 @@ def user_prompts():
     pip_installs = []
     pip_questions = True
     login_question = True
+
+    current_directory = ""
 
     # Checks if the user is logged in
     while login_question:
@@ -24,6 +27,20 @@ def user_prompts():
     
     console.print("\nEnter the repository name:", style="magenta1")
     repo_name = input("> ")
+
+    # Prompt for choosing the directory
+    console.print("\nDo you want to choose the directory for the repository? (y/n):", style="green3")
+    choose_directory = input("> ")
+
+    if choose_directory.lower() == "y":
+        current_directory = filedialog.askdirectory(title="Choose directory for repository")
+        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
+
+    else:
+        # Finds the user's current directory parent's directory
+        current_directory = os.path.abspath(f'../{os.curdir}')
+        # Joins the directory and the repo name
+        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
 
     # Prompt for installing pip dependencies
     console.print("\nDo you want to install any pip dependencies before proceeding? (y/n):", style="green3")
@@ -57,10 +74,4 @@ def user_prompts():
             if exit_question == "n":
                 pip_questions = False
 
-    # Finds the user's current directory parent's directory
-    current_directory = os.path.abspath(f'../{os.curdir}')
-
-    # Joins the directory and the repo name
-    directory = os.path.join(f'{current_directory}/', f'{repo_name}')
-
-    return current_directory, directory, username, repo_name, pip_installs
+    return directory, username, repo_name, pip_installs

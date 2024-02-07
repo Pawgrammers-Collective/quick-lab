@@ -27,8 +27,8 @@ def main():
 
 def create_lab_repo():
     # Function calls
-    current_directory, directory, username, repo_name, pip_installs = user_prompts()
-    init_local_repo(current_directory, repo_name)
+    directory, username, repo_name, pip_installs = user_prompts()
+    init_local_repo(directory, repo_name)
     create_readme(directory)
     virtual_env_setup(directory)
     create_pip_install(pip_installs, directory)

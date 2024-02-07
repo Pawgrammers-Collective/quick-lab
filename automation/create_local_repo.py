@@ -14,11 +14,13 @@ def init_local_repo(directory, name):
 #Make the new folder with the inputted name
     
 
-    repo_path = f"{directory}/{name}"
+    # repo_path = f"{directory}/{name}"
+    # print("repo path is:", repo_path)
 
 # If directory doesn't already exists make
-    if not os.path.exists(repo_path):
-        os.makedirs(repo_path)
+    print('the directory is:',directory)
+    if not os.path.exists(directory):
+        os.makedirs(directory)
 # Else if it exists, ask user if they still want to initialize
     else:
         print("Directory exists already")
@@ -28,7 +30,7 @@ def init_local_repo(directory, name):
             return False
         
 # run git init command in newly made directory
-    completed_process_confirm = subprocess.run(['git', 'init'], cwd=repo_path)
+    completed_process_confirm = subprocess.run(['git', 'init'], cwd=directory)
 
 
 
@@ -37,7 +39,7 @@ def init_local_repo(directory, name):
         module_name = name.replace("-", "_")
     else:
         module_name = name    
-    module_folder = os.path.join(repo_path, module_name)
+    module_folder = os.path.join(directory, module_name)
     os.makedirs(module_folder)
 
 # Create module script file
@@ -46,7 +48,7 @@ def init_local_repo(directory, name):
         module_file_content.write(f'def {module_name}():\n pass\n')
 
 # Create tests folder
-    tests_folder = os.path.join(repo_path, "tests")
+    tests_folder = os.path.join(directory, "tests")
     os.makedirs(tests_folder)
 
 # Create __init__.py file in tests folder
