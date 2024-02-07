@@ -33,12 +33,18 @@ def user_prompts():
         # Display table of pip installs
         display_pip_installs(pip_installs)
 
-        console.print("Do you want to add more dependencies? (y/n):", style="green3")
-        exit_question = input()
+        valid_input = False
+        while not valid_input:
+            console.print("Do you want to add more dependencies? (y/n):", style="green3")
+            exit_question = input()
+
+            if exit_question == "y" or exit_question == "n":
+                valid_input = True
+            else:
+                console.print("Invalid input. Please enter 'y' or 'n'.", style="bold red")
 
         if exit_question == "n":
             pip_questions = False
-
     # Finds the user's current directory parent's directory
     current_directory = os.path.abspath(f'../{os.curdir}')
 
