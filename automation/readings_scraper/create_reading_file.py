@@ -65,8 +65,3 @@ Description of the assignment
 
     return print (template)
 
-
-
-
-
-# print(create_reading_file(title, questions))
