@@ -25,32 +25,37 @@ def user_prompts():
     console.print("\nEnter the repository name:", style="magenta1")
     repo_name = input("> ")
 
-    while pip_questions:
-        console.print("\nEnter a dependency that you want to install:", style="hot_pink")
-        pip = input("> ")
+    # Prompt for installing pip dependencies
+    console.print("\nDo you want to install any pip dependencies before proceeding? (y/n):", style="green3")
+    install_pip_dependencies = input("> ")
 
-        # Check if the dependency already exists in the list
-        while pip in pip_installs:
-            console.print("\nDependency already exists. Please enter a different dependency:", style="bold red")
+    if install_pip_dependencies.lower() == "y":
+        while pip_questions:
+            console.print("\nEnter a dependency that you want to install:", style="hot_pink")
             pip = input("> ")
 
-        pip_installs.append(pip)
+            # Check if the dependency already exists in the list
+            while pip in pip_installs:
+                console.print("\nDependency already exists. Please enter a different dependency:", style="bold red")
+                pip = input("> ")
 
-        # Display table of pip installs
-        display_pip_installs(pip_installs)
+            pip_installs.append(pip)
 
-        valid_input = False
-        while not valid_input:
-            console.print("\nDo you want to add more dependencies? (y/n):", style="green3")
-            exit_question = input("> ")
+            # Display table of pip installs
+            display_pip_installs(pip_installs)
 
-            if exit_question == "y" or exit_question == "n":
-                valid_input = True
-            else:
-                console.print("\nInvalid input. Please enter 'y' or 'n'.", style="bold red")
+            valid_input = False
+            while not valid_input:
+                console.print("\nDo you want to add more dependencies? (y/n):", style="green3")
+                exit_question = input("> ")
 
-        if exit_question == "n":
-            pip_questions = False
+                if exit_question == "y" or exit_question == "n":
+                    valid_input = True
+                else:
+                    console.print("\nInvalid input. Please enter 'y' or 'n'.", style="bold red")
+
+            if exit_question == "n":
+                pip_questions = False
 
     # Finds the user's current directory parent's directory
     current_directory = os.path.abspath(f'../{os.curdir}')

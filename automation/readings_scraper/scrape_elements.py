@@ -51,7 +51,7 @@ def get_videos(url): #shared function to find assignment videos
         # print("videos_soup: ", videos_soup)
         videos_text = [v.text for v in videos_soup]
         videos_url = [v.find("a")["href"] for v in videos_soup if v.find("a")]#finds all <a> tags that are the children of the <p> tags
-        print("videos: ", videos_text, videos_url)
+        # print("videos: ", videos_text, videos_url)
     except:
         videos_text = []
         videos_url = [] 
