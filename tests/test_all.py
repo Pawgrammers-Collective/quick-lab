@@ -4,7 +4,7 @@ from automation.create_local_repo import init_local_repo
 from automation.create_gitignore import create_gitignore
 from automation.create_readme import create_readme
 from automation.virtual_env import virtual_env_setup
-from automation.check_gh_username import check_gh_user, check_gh_repo_exists
+from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
 
 @pytest.mark.skip
 def test_local_repo_creation():
