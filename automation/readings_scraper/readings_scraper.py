@@ -1,5 +1,5 @@
 from automation.readings_scraper.scrape_elements import get_title, get_questions, get_readings, get_videos, get_bookmarks
-# from create_reading_file import create_reading_file
+
 
 
 def create_reading_assignment(class_num=33):
