@@ -7,20 +7,13 @@ import os
 def menu():
     console = Console()
     while True:
-        console.print("\n1. Create Lab Repo\n2. Create Reading Assignment\n3. Exit")
+        console.print("\n1. [bold green]Create Lab Repo[/bold green]\n2. [bold blue]Create Reading Assignment[/bold blue]\n3. [bold red]Exit[/bold red]")
         choice = Prompt.ask("Choose a task (Enter the number)", choices=['1', '2', '3'], default='3')
 
         if choice == '1':
-            directory = Prompt.ask("Enter the directory to list files")
-            list_files(directory)
+            return
         elif choice == '2':
-            directory = Prompt.ask("Enter the current directory of the file")
-            file = Prompt.ask("Enter the file to move")
-            target_directory = Prompt.ask("Enter the target directory to move the file to")
-            move_file(directory, file, target_directory)
-        elif choice == '3':
-            directory = Prompt.ask("Enter the directory to search files")
-            pattern = Prompt.ask("Enter the regex pattern to search for")
-            search_files(directory, pattern)
+            class_num = Prompt.ask("Which class number would you like to create a reading assignment for?")
+            return class_num
         else:
             break

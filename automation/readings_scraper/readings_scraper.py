@@ -19,4 +19,4 @@ def create_reading_assignment(class_num=33):
     
 
 if __name__ == "__main__":
-    create_reading_assignment(33)
+    create_reading_assignment()
