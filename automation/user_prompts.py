@@ -1,6 +1,7 @@
 import os
 from tkinter import filedialog
-from automation.create_pip_install import display_pip_installs
+from automation.create_pip_install import create_pip_install, display_pip_installs
+from automation.check_gh_stuff import check_gh_repo_exists, check_gh_user
 from rich.console import Console
 
 def user_prompts():
@@ -22,11 +23,35 @@ def user_prompts():
 
     # User prompts
     console = Console()
-    console.print("\nEnter your GitHub username:", style="orange1")
-    username = input("> ")
+    user_exists = False
+    while user_exists is False:
+        console.print("\nEnter your GitHub username:", style="orange1")
+        username = input("> ")
+        user_exists = check_gh_user(username)
+        if user_exists is False:
+            console.print("This username does not exist!", style="bold red")
     
-    console.print("\nEnter the repository name:", style="magenta1")
-    repo_name = input("> ")
+    repo_exists = True
+    while repo_exists is True:
+        console.print("\nEnter the repository name:", style="magenta1")
+        repo_name = input("> ")
+        repo_exists = check_gh_repo_exists(username, repo_name)
+        if repo_exists is True:
+            console.print("This remote repository is already made!", style="bold red")
+
+    # Prompt for choosing the directory
+    console.print("\nDo you want to choose the directory for the repository? (y/n):", style="green3")
+    choose_directory = input("> ")
+
+    if choose_directory.lower() == "y":
+        current_directory = filedialog.askdirectory(title="Choose directory for repository")
+        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
+
+    else:
+        # Finds the user's current directory parent's directory
+        current_directory = os.path.abspath(f'../{os.curdir}')
+        # Joins the directory and the repo name
+        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
 
     # Prompt for choosing the directory
     console.print("\nDo you want to choose the directory for the repository? (y/n):", style="green3")
