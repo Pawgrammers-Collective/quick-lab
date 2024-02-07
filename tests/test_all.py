@@ -4,7 +4,7 @@ from automation.create_local_repo import init_local_repo
 from automation.create_gitignore import create_gitignore
 from automation.create_readme import create_readme
 from automation.virtual_env import virtual_env_setup
-from automation.check_gh_username import check_gh_user
+from automation.check_gh_username import check_gh_user, check_gh_repo_exists
 
 @pytest.mark.skip
 def test_local_repo_creation():
@@ -44,5 +44,17 @@ def test_check_gh_user_true():
 @pytest.mark.skip
 def test_check_gh_user_false():
     actual = check_gh_user("xxbob-saget-was-a-gov-spy20")
+    expected = False
+    assert actual == expected
+
+# @pytest.mark.skip
+def test_gh_repo_exists_true():
+    actual = check_gh_repo_exists("brendanhuddleston18", "ten-thousand")
+    expected = True
+    assert actual == expected
+
+# @pytest.mark.skip
+def test_gh_repo_exists_false():
+    actual = check_gh_repo_exists("xxbob-saget-was-a-gov-spy20", "ten-thousand")
     expected = False
     assert actual == expected
