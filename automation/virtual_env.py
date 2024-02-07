@@ -27,3 +27,5 @@ def virtual_env_setup(directory):
     else:
         pass
         #throw an error
+
+    return os.path.exists(f"{directory}/.venv")

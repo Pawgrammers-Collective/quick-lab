@@ -188,3 +188,4 @@ cython_debug/
     gitignore.write(gitignore_template)
 
   return os.path.exists(f'{directory}/.gitignore')
+
