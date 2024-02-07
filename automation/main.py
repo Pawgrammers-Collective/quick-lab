@@ -19,7 +19,8 @@ def main():
         if choice == '1':
             create_lab_repo()
         elif choice == '2':
-            class_num = Prompt.ask("Which class number would you like to create a reading assignment for?")
+            console.print("Which class number would you like to create a reading assignment for?", style = "dodger_blue1")
+            class_num = input("> ")
             create_reading_assignment(class_num)
         else:
             break

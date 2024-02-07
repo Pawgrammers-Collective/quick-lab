@@ -8,7 +8,10 @@
 import os
 import shutil
 import subprocess
+from rich.console import Console
 
+
+console = Console()
 
 def init_local_repo(directory, name):
 #Make the new folder with the inputted name
@@ -62,5 +65,7 @@ def init_local_repo(directory, name):
     with open(test_file, 'w') as test_file_content:
         test_file_content.write(f'import pytest\n')
         test_file_content.write(f'from {module_name}.{module_name} import {module_name} ')
+
+    console.print("Repo initalizing. In Progress......", style = "bold green")
 
     return str(completed_process_confirm)
