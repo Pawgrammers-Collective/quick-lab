@@ -61,4 +61,3 @@ Description of the assignment
         file.write(f"# {template}")
         console.print('File created successfully!', style = "bold spring_green3")
         
-
