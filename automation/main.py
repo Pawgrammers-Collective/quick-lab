@@ -1,38 +1,39 @@
 from automation.create_local_repo import init_local_repo
 from automation.create_gitignore import create_gitignore
-from automation.virtual_env import virtual_env_setup
 from automation.create_github_repo import create_github_repo
-import os
-from rich.console import Console
+from automation.user_prompts import user_prompts
+from automation.create_pip_install import create_pip_install
 from automation.create_readme import create_readme
-import subprocess
+from automation.readings_scraper.readings_scraper import create_reading_assignment
+from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
+from rich.console import Console
+from rich.prompt import Prompt
+
 
 def main():
-        
-    # os.chdir('../')
-    current_directory=os.path.abspath(f'../{os.curdir}')
-    username = input("Enter your GitHub username: ")
-    repo_name = input("Enter the repository name: ")
+    console = Console()
+    while True:
+        console.print("\n1. [bold green]Create Lab Repo[/bold green]\n2. [bold blue]Create Reading Assignment[/bold blue]\n3. [bold red]Exit[/bold red]")
+        choice = Prompt.ask("Choose a task (Enter the number)", choices=['1', '2', '3'], default='3')
 
+        if choice == '1':
+            create_lab_repo()
+        elif choice == '2':
+            console.print("Which class number would you like to create a reading assignment for?", style = "dodger_blue1")
+            class_num = input("> ")
+            create_reading_assignment(class_num)
+        else:
+            break
+    
 
-
-    directory=os.path.join(f'{current_directory}/', f'{repo_name}')
-
-    init_local_repo(current_directory, repo_name)
-
+def create_lab_repo():
+    # Function calls
+    directory, username, repo_name, pip_installs = user_prompts()
+    init_local_repo(directory, repo_name)
     create_readme(directory)
-
-    virtual_env_setup(directory)
-
+    create_pip_install(pip_installs, directory)
     create_gitignore(directory)
-
-    subprocess.run(['git','add',"."], cwd=f"{directory}")
-
-    subprocess.run(['git','commit','-m','"First Commit"'], cwd=f"{directory}")
-
-    create_github_repo(repo_name, username,directory)
-
-
+    create_github_repo(repo_name, username, directory)
 
 
 if __name__ == "__main__":

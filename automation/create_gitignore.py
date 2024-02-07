@@ -179,15 +179,15 @@ cython_debug/
 #  and can be added to the global gitignore or merged into this file.  For a more nuclear
 #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
 #.idea/
+
+.DS_Store
   '''
 
 
 
-  
-#   Opens the gitignore contents in this package, stores it as a template to 
-  # with open('./.gitignore', 'r') as gitignore_template:
-  #   gitignore_contents = gitignore_template.read()
-
 # Creates a gitignore in the user's desired directory with the gitignore contents
   with open(f'{directory}/.gitignore', 'w') as gitignore:
     gitignore.write(gitignore_template)
+
+  return os.path.exists(f'{directory}/.gitignore')
+
