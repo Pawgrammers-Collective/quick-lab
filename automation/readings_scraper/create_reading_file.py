@@ -6,30 +6,30 @@ def create_reading_file(title, class_num, questions, readings, videos, bookmarks
     file_name = f"reading{class_num}.md"
     file_path = os.path.join(folder_path,"/",file_name)
 
-    print("file_path:", file_path)
-    print("title:", title)
-    print("questions:", questions)
-    print("readings:", readings)
-    print("videos:", videos)
-    print("bookmarks:", bookmarks)
+    # print("file_path:", file_path)
+    # print("title:", title)
+    # print("questions:", questions)
+    # print("readings:", readings)
+    # print("videos:", videos)
+    # print("bookmarks:", bookmarks)
 
 
-    for question in questions:
-        question_print = print(f"### {question}\n>*Answer*\n")
+    # for question in questions:
+    #     question_print = print(f"### {question}\n>*Answer*\n")
 
-    for reading in readings:
-        f"### {reading}\n\n"
+    # for reading in readings:
+    #     f"### {reading}\n\n"
 
-    for video in videos:
-        f"### {video}\n\n"
+    # for video in videos:
+    #     f"### {video}\n\n"
 
-    for bookmark in bookmarks:
-        f"### {bookmark}\n\n"
+    # for bookmark in bookmarks:
+    #     f"### {bookmark}\n\n"
 
-    create_template (title, question_print, readings, videos, bookmarks)
+    create_template (title, questions, readings, videos, bookmarks)
 
 
-def create_template(title, question_print, readings, videos, bookmarks):
+def create_template(title, questions, readings, videos, bookmarks):
 
         # Define the template
     template = f"""
@@ -47,7 +47,7 @@ def create_template(title, question_print, readings, videos, bookmarks):
     {bookmarks}
     
     ## Reading Questions
-    {question_print}
+    {questions}
 
     ## Things I want to know more about
 

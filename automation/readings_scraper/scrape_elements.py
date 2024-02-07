@@ -23,7 +23,7 @@ def get_questions(url): #shared function to find assignment questions
         questions = [q.text for q in questions_soup]
         questions_formatted = ""
         for question in questions:
-            questions_formatted += f"### {question}\n>*Answer*\n\n"
+            questions_formatted += f"### {question.strip()}\n\n>*Answer*\n\n"
     except:
         questions_formatted = ""
     return questions_formatted

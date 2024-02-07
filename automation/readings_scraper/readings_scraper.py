@@ -1,6 +1,6 @@
 from automation.readings_scraper.scrape_elements import get_title, get_questions, get_readings, get_videos, get_bookmarks
 # from scrape_elements import get_title, get_questions, get_readings, get_videos, get_bookmarks
-from create_reading_file import create_reading_file
+from automation.readings_scraper.create_reading_file import create_reading_file
 
 
 def create_reading_assignment(class_num=33):
@@ -15,23 +15,29 @@ def create_reading_assignment(class_num=33):
 
     create_reading_file (title, class_num, questions, readings, videos, bookmarks)
 
-    # return title, questions, readings, videos, bookmarks
+    return title, questions, readings, videos, bookmarks
 
 if __name__ == "__main__":
-    title,readings, videos, bookmark, questions,  = create_reading_assignment(33)
-    template = f"""
-    # Assignment Title: {title}
+    # title,readings, videos, bookmarks, questions,  = 
+    
+    create_reading_assignment(33)
 
-    ## Questions: 
-    {questions}
 
-    ## Readings:
-    {readings}
 
-    ## Videos:
-    {videos}
+    # if title and readings and videos and bookmarks and questions:
+    #     template = f"""
+    #     # Assignment Title: {title}
 
-    ## Bookmarks:
-    {bookmarks}
-    """
-    print(template)
+    #     ## Questions: 
+    #     {questions}
+
+    #     ## Readings:
+    #     {readings}
+
+    #     ## Videos:
+    #     {videos}
+
+    #     ## Bookmarks:
+    #     {bookmarks}
+    #     """
+    #     print(template)
