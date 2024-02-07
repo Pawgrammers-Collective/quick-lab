@@ -16,5 +16,5 @@ def create_reading_assignment(class_num=33):
 
     return title, questions, readings, videos, bookmarks
 
-if __name__ == "__main__":
-    create_reading_assignment(34)
+# if __name__ == "__main__":
+# create_reading_assignment(34)

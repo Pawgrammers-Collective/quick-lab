@@ -1,4 +1,5 @@
 import os
+from tkinter import filedialog
 from automation.create_pip_install import create_pip_install, display_pip_installs
 from automation.check_gh_stuff import check_gh_repo_exists, check_gh_user
 from rich.console import Console
@@ -8,6 +9,8 @@ def user_prompts():
     pip_installs = []
     pip_questions = True
     login_question = True
+
+    current_directory = ""
 
     # Checks if the user is logged in
     while login_question:
@@ -35,6 +38,20 @@ def user_prompts():
         repo_exists = check_gh_repo_exists(username, repo_name)
         if repo_exists is True:
             console.print("This remote repository is already made!", style="bold red")
+
+    # Prompt for choosing the directory
+    console.print("\nDo you want to choose the directory for the repository? (y/n):", style="green3")
+    choose_directory = input("> ")
+
+    if choose_directory.lower() == "y":
+        current_directory = filedialog.askdirectory(title="Choose directory for repository")
+        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
+
+    else:
+        # Finds the user's current directory parent's directory
+        current_directory = os.path.abspath(f'../{os.curdir}')
+        # Joins the directory and the repo name
+        directory = os.path.join(f'{current_directory}/', f'{repo_name}')
 
     # Prompt for installing pip dependencies
     console.print("\nDo you want to install any pip dependencies before proceeding? (y/n):", style="green3")
@@ -68,10 +85,4 @@ def user_prompts():
             if exit_question == "n":
                 pip_questions = False
 
-    # Finds the user's current directory parent's directory
-    current_directory = os.path.abspath(f'../{os.curdir}')
-
-    # Joins the directory and the repo name
-    directory = os.path.join(f'{current_directory}/', f'{repo_name}')
-
-    return current_directory, directory, username, repo_name, pip_installs
+    return directory, username, repo_name, pip_installs

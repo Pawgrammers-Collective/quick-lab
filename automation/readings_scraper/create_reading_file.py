@@ -1,6 +1,6 @@
 import os
 from rich.console import Console
-from automation.main import main
+# from automation.main import main
 
 console = Console()
 
@@ -25,11 +25,11 @@ def create_reading_file(title, class_num, questions, readings, videos, bookmarks
         
         elif user_input == "n":
             console.print("File not created.", style="bold green")
-            main()
+            create_reading_file(title, class_num, questions, readings, videos, bookmarks)
 
         else:
-            console.print("Response not recoginized. Returning to main menu.", style="bold red")
-            main()
+            console.print("Response not recognized. Returning to main menu.", style="bold red")
+            create_reading_file(title, class_num, questions, readings, videos, bookmarks)
 
     create_template (title, questions, readings, videos, bookmarks, file_path)
 
