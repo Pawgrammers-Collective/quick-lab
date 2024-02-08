@@ -1,8 +1,8 @@
 import os
 from tkinter import filedialog
 import tkinter
-from automation.create_pip_install import create_pip_install, display_pip_installs
-from automation.check_gh_stuff import check_gh_repo_exists, check_gh_user
+from automation.create_lab_repo.create_pip_install import create_pip_install, display_pip_installs
+from automation.create_lab_repo.check_gh_stuff import check_gh_repo_exists, check_gh_user
 from rich.console import Console
 
 def user_prompts():
