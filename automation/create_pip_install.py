@@ -6,51 +6,44 @@ import os
 
 def create_pip_install(dependencies, directory):
     """
-    Install pip dependencies and creates .venv/requirements.txt.
+    Install pip dependencies and create requirements.txt file.
 
     Args:
         dependencies (list): List of pip dependencies to install.
         directory (str): Directory to install dependencies and create requirements.txt.
+        
+    Returns:
+        bool: True if the virtual environment (.venv) is successfully created, False otherwise.
     """
-    # checks pc
+    # Check the operating system
     pc_type = platform.system()
 
-    # creates .venv file into the new directory
+    # Create .venv directory in the specified directory
     subprocess.run(["python3", "-m", "venv", ".venv"], cwd=directory)
 
-    if pc_type == "Darwin":
+    if pc_type == "Darwin":  # For macOS
 
-         # Install dependencies
+        # Install dependencies
         for dependency in dependencies:
             subprocess.run([f'{directory}/.venv/bin/pip', 'install', dependency], cwd=directory, text=True)
         
-        # grabs the requirements
-        result = subprocess.run([f'{directory}/.venv/bin/pip', 'freeze', '>', f'{directory}/requirements.txt'], cwd=directory, capture_output=True, text=True)
-
-        # Creates a requirements.txt and writes the dependencies within
-        with open(f'{directory}/requirements.txt', 'w') as gitignore:
-            gitignore.write(result.stdout)
-
+        # Freeze dependencies and write to requirements.txt
+        result = subprocess.run([f'{directory}/.venv/bin/pip', 'freeze'], cwd=directory, capture_output=True, text=True)
+        with open(f'{directory}/requirements.txt', 'w') as requirements_file:
+            requirements_file.write(result.stdout)
         
-    
-    # creates a .venv if the user is on pc.
-    elif pc_type == "Windows":  
+    elif pc_type == "Windows":  # For Windows
 
-        # Installs the dependencies
+        # Install dependencies
         for dependency in dependencies:
             subprocess.run([f'{directory}/.venv/Scripts/pip', 'install', dependency], cwd=directory, text=True)
 
-        # grabs the requirements
-        result = subprocess.run([f'{directory}/.venv/Scripts/pip', 'freeze', '>', f'{directory}/requirements.txt'], cwd=directory, capture_output=True, text=True)
-
-        # Creates a requirements and writes the dependencies within
-        with open(f'{directory}/requirements.txt', 'w') as gitignore:
-            gitignore.write(result.stdout)
+        # Freeze dependencies and write to requirements.txt
+        result = subprocess.run([f'{directory}/.venv/Scripts/pip', 'freeze'], cwd=directory, capture_output=True, text=True)
+        with open(f'{directory}/requirements.txt', 'w') as requirements_file:
+            requirements_file.write(result.stdout)
 
     return os.path.exists(f"{directory}/.venv")
-
-
-
 
 def display_pip_installs(pip_installs):
     """
