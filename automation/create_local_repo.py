@@ -5,10 +5,21 @@ from rich.progress import Progress
 from time import sleep
 
 console = Console()
-progress=Progress()
+progress = Progress()
 
 def init_local_repo(directory, name):
-    # Make the new folder with the inputted name
+    """
+    Initialize a local repository with a specified name in the given directory.
+
+    Args:
+        directory (str): The directory path where the repository will be initialized.
+        name (str): The name of the repository.
+
+    Returns:
+        str or bool: If the repository initialization is successful, returns the completed process confirmation string.
+                     If the directory already exists and the user chooses not to initialize a repository, returns False.
+    """
+    # Create the new folder with the inputted name
     if not os.path.exists(directory):
         os.makedirs(directory)
     else:
@@ -47,7 +58,7 @@ def init_local_repo(directory, name):
         test_file_content.write(f'from {module_name}.{module_name} import {module_name} ')
     
     
-   # Display message with spinner animation
+    # Display message with spinner animation
     with console.status("[bold green]Repo initializing... ", spinner="moon"):
         sleep(3)        
 
