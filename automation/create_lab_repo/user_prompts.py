@@ -48,7 +48,7 @@ def user_prompts():
             console.print("This remote repository is already made!", style="bold red")
 
     # Prompt for choosing the directory
-    console.print(f"\nThis program will create a {repo_name} folder for you at the same level as this program, if one doesn't already exist. Would you like to choose a different location for your lab repo instead? (y/n):", style="green3")
+    console.print(f"\nThis program will create a {repo_name} repository for you at the same level as this program, if one doesn't already exist. Would you like to choose a different location for your lab repository instead? (y/n):", style="green3")
     choose_directory = input("> ")
 
     if choose_directory.lower() == "y":
