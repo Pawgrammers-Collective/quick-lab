@@ -19,8 +19,7 @@ def create_reading_file(title, class_num, questions, readings, videos, bookmarks
 def create_template(title, questions, readings, videos, bookmarks, file_path):
 
     # Define the template
-    template = f"""
-# {title}
+    template = f"""# {title}
 
 Description of the assignment
 
@@ -42,6 +41,6 @@ Description of the assignment
 """
 
     with open(file_path, "w") as file:
-        file.write(f"# {template}")
+        file.write(f"{template}")
         console.print('File created successfully!', style = "bold spring_green3")
         
