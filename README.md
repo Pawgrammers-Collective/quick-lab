@@ -96,6 +96,10 @@ Include in your domain model the names and data types of your entities and their
 
    ![Miro Domain Model](assets/domain-model.jpeg)
 
+### Instructions
+
+[Instructions](./instructions.md)
+
 <!-- ### Using a Database? Make an Database Schema Diagram ?
 
 If you are using a database of any kind in your project, draft out what your schema will look like by creating a diagram of all your application data models, each in it’s own collection (or table).
