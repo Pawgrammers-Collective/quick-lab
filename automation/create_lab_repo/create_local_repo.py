@@ -3,6 +3,7 @@ import subprocess
 from rich.console import Console
 from rich.progress import Progress
 from time import sleep
+from automation.create_lab_repo.templates import test_file_template, file_template
 
 console = Console()
 progress = Progress()
@@ -39,8 +40,7 @@ def init_local_repo(directory, name):
     
     # Create module script file
     module_script_file = os.path.join(module_folder, f"{module_name}.py")
-    with open(module_script_file, 'w') as module_file_content:
-        module_file_content.write(f'def {module_name}():\n pass\n')
+    file_template(module_script_file, module_name)
     
     # Create tests folder
     tests_folder = os.path.join(directory, "tests")
@@ -53,9 +53,7 @@ def init_local_repo(directory, name):
     
     # Create test file for the module
     test_file = os.path.join(tests_folder, f"test_{module_name}.py")
-    with open(test_file, 'w') as test_file_content:
-        test_file_content.write(f'import pytest\n')
-        test_file_content.write(f'from {module_name}.{module_name} import {module_name} ')
+    test_file_template(test_file, module_name)
     
     
     # Display message with spinner animation
