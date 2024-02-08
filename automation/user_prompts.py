@@ -1,10 +1,12 @@
 import os
 from tkinter import filedialog
+import tkinter
 from automation.create_pip_install import create_pip_install, display_pip_installs
 from automation.check_gh_stuff import check_gh_repo_exists, check_gh_user
 from rich.console import Console
 
 def user_prompts():
+
     # List for the user's pip installs
     pip_installs = []
     pip_questions = True
@@ -44,7 +46,10 @@ def user_prompts():
     choose_directory = input("> ")
 
     if choose_directory.lower() == "y":
-        current_directory = filedialog.askdirectory(title="Choose directory for repository")
+        root = tkinter.Tk()
+
+        current_directory = filedialog.askdirectory(title="Choose directory for repository",parent=root)
+        root.withdraw()
         directory = os.path.join(f'{current_directory}/', f'{repo_name}')
 
     else:
