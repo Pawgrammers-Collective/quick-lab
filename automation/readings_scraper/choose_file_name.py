@@ -3,8 +3,16 @@ from tkinter import filedialog
 from rich.console import Console
 
 
-#Prompt for a file name
 def choose_file_name(class_num):
+    """
+    Prompt the user to choose a file name for the reading file.
+
+    Args:
+        class_num (str): The class number associated with the reading assignment.
+
+    Returns:
+        str: The chosen file name.
+    """
     console = Console()
     file_name = f"reading{class_num}.md"
     
