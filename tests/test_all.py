@@ -7,24 +7,24 @@ from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
 
 # @pytest.mark.skip
 def test_local_repo_creation():
-    actual = init_local_repo("../testing", "test01")
+    actual = init_local_repo("../pytest-testing", "test_pytest")
     expected = "CompletedProcess(args=['git', 'init'], returncode=0)"
     assert actual == expected
 
 # @pytest.mark.skip
 def test_no_to_previously_made_directory():
   with patch('builtins.input', return_value= 'n'):
-        assert not init_local_repo("../testing", "test01")
+        assert not init_local_repo("../pytest-testing", "test_pytest")
 
 # @pytest.mark.skip
 def test_create_gitignore():
-    actual = create_gitignore("../testing/test01")
+    actual = create_gitignore("../pytest-testing/test_pytest")
     expected = True
     assert actual == expected
 
 # @pytest.mark.skip
 def test_create_readme():
-    actual = create_readme("../testing/test01")
+    actual = create_readme("../pytest-testing/test_pytest")
     expected = True
     assert actual == expected
 
