@@ -4,7 +4,7 @@ from automation.create_github_repo import create_github_repo
 from automation.user_prompts import user_prompts
 from automation.create_pip_install import create_pip_install
 from automation.create_readme import create_readme
-from automation.readings_scraper.readings_scraper import create_reading_assignment
+from automation.readings_scraper.readings_scraper import readings_scraper
 from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
 from rich.console import Console
 from rich.prompt import Prompt
@@ -19,9 +19,7 @@ def main():
         if choice == '1':
             create_lab_repo()
         elif choice == '2':
-            console.print("Which class number would you like to create a reading assignment for?", style = "dodger_blue1")
-            class_num = input("> ")
-            create_reading_assignment(class_num)
+            readings_scraper()
         else:
             break
     
