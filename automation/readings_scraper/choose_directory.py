@@ -1,16 +1,33 @@
 import os
 from tkinter import filedialog
+import tkinter
 from rich.console import Console
 
 
- # Prompt for choosing the directory
 def choose_directory(file_name):
+    """
+    Prompt the user to choose a directory for the reading assignment file.
+
+    This function asks the user if they want to choose a different folder for the reading assignment file. 
+    If the user chooses to select a different folder, it opens a file dialog for the user to choose the folder. 
+    If the user chooses not to select a different folder, it places the file in the 'reading_assignments' folder 
+    at the same level as the program. If the 'reading_assignments' folder doesn't exist, it creates one.
+
+    Args:
+        file_name (str): The name of the reading assignment file.
+
+    Returns:
+        str: The file path where the reading assignment file will be saved.
+            Returns False if the user chooses not to overwrite an existing file.
+    """
     console = Console()
-    console.print("\nThis program will create a 'reading_assignments' folder for you at the same level as this program if one doesn't already exist. Would you like to choose a different folder for your reading assignment file instead? (y/n):", style="green3")
+    console.print("\nThis program will create a 'reading_assignments' folder for you at the same level as this program if one doesn't already exist. Would you like to choose a different folder for your reading assignment file instead? (y/n):", style="bold blue")
     choose_directory = input("> ")
 
     if choose_directory.lower() in ["y", "yes"]:
-        directory = filedialog.askdirectory(title="Choose your folder for your reading assignment file")
+        root = tkinter.Tk()
+        directory = filedialog.askdirectory(title="Choose your folder for your reading assignment file", parent=root)
+        root.withdraw()
         file_path = os.path.join(f'{directory}/{file_name}')
     
     elif choose_directory.lower() in ["n", "no"]:
