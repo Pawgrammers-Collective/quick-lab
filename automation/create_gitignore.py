@@ -12,11 +12,6 @@ import os
 import shutil
 import platform
 
-
-
-
-
-
 def create_gitignore(directory='.'):
   gitignore_template='''
 # Byte-compiled / optimized / DLL files
