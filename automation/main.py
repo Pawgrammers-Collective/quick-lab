@@ -11,6 +11,9 @@ from rich.prompt import Prompt
 
 
 def main():
+    """
+    Main function to present options to the user and perform actions based on their choice.
+    """
     console = Console()
     while True:
         console.print("\n1. [bold green]Create Lab Repo[/bold green]\n2. [bold blue]Create Reading Assignment[/bold blue]\n3. [bold red]Exit[/bold red]")
@@ -25,6 +28,9 @@ def main():
     
 
 def create_lab_repo():
+    """
+    Function to create a lab repository with necessary files and configurations.
+    """
     # Function calls
     directory, username, repo_name, pip_installs = user_prompts()
     init_local_repo(directory, repo_name)

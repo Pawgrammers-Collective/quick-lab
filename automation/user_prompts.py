@@ -6,6 +6,12 @@ from automation.check_gh_stuff import check_gh_repo_exists, check_gh_user
 from rich.console import Console
 
 def user_prompts():
+    """
+    Function to prompt the user for necessary information to create a GitHub repository and optionally install pip dependencies.
+
+    Returns:
+        tuple: A tuple containing directory path, GitHub username, repository name, and a list of pip dependencies.
+    """
 
     # List for the user's pip installs
     pip_installs = []
