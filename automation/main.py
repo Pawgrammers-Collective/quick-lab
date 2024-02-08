@@ -1,11 +1,11 @@
-from automation.create_local_repo import init_local_repo
-from automation.create_gitignore import create_gitignore
-from automation.create_github_repo import create_github_repo
-from automation.user_prompts import user_prompts
-from automation.create_pip_install import create_pip_install
-from automation.create_readme import create_readme
+from automation.create_lab_repo.create_local_repo import init_local_repo
+from automation.create_lab_repo.create_gitignore import create_gitignore
+from automation.create_lab_repo.create_github_repo import create_github_repo
+from automation.create_lab_repo.user_prompts import user_prompts
+from automation.create_lab_repo.create_pip_install import create_pip_install
+from automation.create_lab_repo.create_readme import create_readme
 from automation.readings_scraper.readings_scraper import readings_scraper
-from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
+from automation.create_lab_repo.check_gh_stuff import check_gh_user, check_gh_repo_exists
 from rich.console import Console
 from rich.prompt import Prompt
 
