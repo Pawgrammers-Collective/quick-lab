@@ -1,16 +1,19 @@
 import os
 from tkinter import filedialog
+import tkinter
 from rich.console import Console
 
 
  # Prompt for choosing the directory
 def choose_directory(file_name):
     console = Console()
-    console.print("\nThis program will create a 'reading_assignments' folder for you at the same level as this program if one doesn't already exist. Would you like to choose a different folder for your reading assignment file instead? (y/n):", style="green3")
+    console.print("\nThis program will create a 'reading_assignments' folder for you at the same level as this program if one doesn't already exist. Would you like to choose a different folder for your reading assignment file instead? (y/n):", style="bold blue")
     choose_directory = input("> ")
 
     if choose_directory.lower() in ["y", "yes"]:
-        directory = filedialog.askdirectory(title="Choose your folder for your reading assignment file")
+        root = tkinter.Tk()
+        directory = filedialog.askdirectory(title="Choose your folder for your reading assignment file", parent=root)
+        root.withdraw()
         file_path = os.path.join(f'{directory}/{file_name}')
     
     elif choose_directory.lower() in ["n", "no"]:
