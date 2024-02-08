@@ -1,193 +1,184 @@
-"""
-Function creates .gitignore after script initialization.  Adds .venv(for starters) to .gitignore
-
-params:
-- None
-
-Returns:
-- None but .gitignore will be created
-"""
-
 import os 
 import shutil
 import platform
 
-
-
-
-
-
 def create_gitignore(directory='.'):
-  gitignore_template='''
-# Byte-compiled / optimized / DLL files
-__pycache__/
-*.py[cod]
-*$py.class
+    """
+    Create a .gitignore file in the specified directory with a standard template.
 
-# C extensions
-*.so
+    Args:
+        directory (str): The directory path where the .gitignore file will be created. Default is the current directory.
 
-# Distribution / packaging
-.Python
-build/
-develop-eggs/
-dist/
-downloads/
-eggs/
-.eggs/
-lib/
-lib64/
-parts/
-sdist/
-var/
-wheels/
-share/python-wheels/
-*.egg-info/
-.installed.cfg
-*.egg
-MANIFEST
+    Returns:
+        bool: True if the .gitignore file is successfully created, False otherwise.
+    """
+    gitignore_template = '''
+    # Byte-compiled / optimized / DLL files
+    __pycache__/
+    *.py[cod]
+    *$py.class
 
-# PyInstaller
-#  Usually these files are written by a python script from a template
-#  before PyInstaller builds the exe, so as to inject date/other infos into it.
-*.manifest
-*.spec
+    # C extensions
+    *.so
 
-# Installer logs
-pip-log.txt
-pip-delete-this-directory.txt
+    # Distribution / packaging
+    .Python
+    build/
+    develop-eggs/
+    dist/
+    downloads/
+    eggs/
+    .eggs/
+    lib/
+    lib64/
+    parts/
+    sdist/
+    var/
+    wheels/
+    share/python-wheels/
+    *.egg-info/
+    .installed.cfg
+    *.egg
+    MANIFEST
 
-# Unit test / coverage reports
-htmlcov/
-.tox/
-.nox/
-.coverage
-.coverage.*
-.cache
-nosetests.xml
-coverage.xml
-*.cover
-*.py,cover
-.hypothesis/
-.pytest_cache/
-cover/
+    # PyInstaller
+    #  Usually these files are written by a python script from a template
+    #  before PyInstaller builds the exe, so as to inject date/other infos into it.
+    *.manifest
+    *.spec
 
-# Translations
-*.mo
-*.pot
+    # Installer logs
+    pip-log.txt
+    pip-delete-this-directory.txt
 
-# Django stuff:
-*.log
-local_settings.py
-db.sqlite3
-db.sqlite3-journal
+    # Unit test / coverage reports
+    htmlcov/
+    .tox/
+    .nox/
+    .coverage
+    .coverage.*
+    .cache
+    nosetests.xml
+    coverage.xml
+    *.cover
+    *.py,cover
+    .hypothesis/
+    .pytest_cache/
+    cover/
 
-# Flask stuff:
-instance/
-.webassets-cache
+    # Translations
+    *.mo
+    *.pot
 
-# Scrapy stuff:
-.scrapy
+    # Django stuff:
+    *.log
+    local_settings.py
+    db.sqlite3
+    db.sqlite3-journal
 
-# Sphinx documentation
-docs/_build/
+    # Flask stuff:
+    instance/
+    .webassets-cache
 
-# PyBuilder
-.pybuilder/
-target/
+    # Scrapy stuff:
+    .scrapy
 
-# Jupyter Notebook
-.ipynb_checkpoints
+    # Sphinx documentation
+    docs/_build/
 
-# IPython
-profile_default/
-ipython_config.py
+    # PyBuilder
+    .pybuilder/
+    target/
 
-# pyenv
-#   For a library or package, you might want to ignore these files since the code is
-#   intended to run in multiple environments; otherwise, check them in:
-# .python-version
+    # Jupyter Notebook
+    .ipynb_checkpoints
 
-# pipenv
-#   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
-#   However, in case of collaboration, if having platform-specific dependencies or dependencies
-#   having no cross-platform support, pipenv may install dependencies that don't work, or not
-#   install all needed dependencies.
-#Pipfile.lock
+    # IPython
+    profile_default/
+    ipython_config.py
 
-# poetry
-#   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
-#   This is especially recommended for binary packages to ensure reproducibility, and is more
-#   commonly ignored for libraries.
-#   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
-#poetry.lock
+    # pyenv
+    #   For a library or package, you might want to ignore these files since the code is
+    #   intended to run in multiple environments; otherwise, check them in:
+    # .python-version
 
-# pdm
-#   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
-#pdm.lock
-#   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
-#   in version control.
-#   https://pdm.fming.dev/#use-with-ide
-.pdm.toml
+    # pipenv
+    #   According to pypa/pipenv#598, it is recommended to include Pipfile.lock in version control.
+    #   However, in case of collaboration, if having platform-specific dependencies or dependencies
+    #   having no cross-platform support, pipenv may install dependencies that don't work, or not
+    #   install all needed dependencies.
+    #Pipfile.lock
 
-# PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
-__pypackages__/
+    # poetry
+    #   Similar to Pipfile.lock, it is generally recommended to include poetry.lock in version control.
+    #   This is especially recommended for binary packages to ensure reproducibility, and is more
+    #   commonly ignored for libraries.
+    #   https://python-poetry.org/docs/basic-usage/#commit-your-poetrylock-file-to-version-control
+    #poetry.lock
 
-# Celery stuff
-celerybeat-schedule
-celerybeat.pid
+    # pdm
+    #   Similar to Pipfile.lock, it is generally recommended to include pdm.lock in version control.
+    #pdm.lock
+    #   pdm stores project-wide configurations in .pdm.toml, but it is recommended to not include it
+    #   in version control.
+    #   https://pdm.fming.dev/#use-with-ide
+    .pdm.toml
 
-# SageMath parsed files
-*.sage.py
+    # PEP 582; used by e.g. github.com/David-OConnor/pyflow and github.com/pdm-project/pdm
+    __pypackages__/
 
-# Environments
-.env
-.venv
-env/
-venv/
-ENV/
-env.bak/
-venv.bak/
+    # Celery stuff
+    celerybeat-schedule
+    celerybeat.pid
 
-# Spyder project settings
-.spyderproject
-.spyproject
+    # SageMath parsed files
+    *.sage.py
 
-# Rope project settings
-.ropeproject
+    # Environments
+    .env
+    .venv
+    env/
+    venv/
+    ENV/
+    env.bak/
+    venv.bak/
 
-# mkdocs documentation
-/site
+    # Spyder project settings
+    .spyderproject
+    .spyproject
 
-# mypy
-.mypy_cache/
-.dmypy.json
-dmypy.json
+    # Rope project settings
+    .ropeproject
 
-# Pyre type checker
-.pyre/
+    # mkdocs documentation
+    /site
 
-# pytype static type analyzer
-.pytype/
+    # mypy
+    .mypy_cache/
+    .dmypy.json
+    dmypy.json
 
-# Cython debug symbols
-cython_debug/
+    # Pyre type checker
+    .pyre/
 
-# PyCharm
-#  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
-#  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
-#  and can be added to the global gitignore or merged into this file.  For a more nuclear
-#  option (not recommended) you can uncomment the following to ignore the entire idea folder.
-#.idea/
+    # pytype static type analyzer
+    .pytype/
 
-.DS_Store
-  '''
+    # Cython debug symbols
+    cython_debug/
 
+    # PyCharm
+    #  JetBrains specific template is maintained in a separate JetBrains.gitignore that can
+    #  be found at https://github.com/github/gitignore/blob/main/Global/JetBrains.gitignore
+    #  and can be added to the global gitignore or merged into this file.  For a more nuclear
+    #  option (not recommended) you can uncomment the following to ignore the entire idea folder.
+    #.idea/
 
+    .DS_Store
+    '''
 
-# Creates a gitignore in the user's desired directory with the gitignore contents
-  with open(f'{directory}/.gitignore', 'w') as gitignore:
-    gitignore.write(gitignore_template)
+    # Create a .gitignore file in the user's desired directory with the gitignore contents
+    with open(f'{directory}/.gitignore', 'w') as gitignore:
+        gitignore.write(gitignore_template)
 
-  return os.path.exists(f'{directory}/.gitignore')
-
+    return os.path.exists(f'{directory}/.gitignore')

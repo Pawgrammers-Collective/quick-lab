@@ -1,4 +1,13 @@
 def create_readme(directory):
+    """
+    Function to create a README.md file with a standard template in the specified directory.
+
+    Args:
+        directory (str): The directory path where the README.md file will be created.
+
+    Returns:
+        bool: True if the README.md file is successfully created, False otherwise.
+    """
     import os
     readme_template = """
 # LAB - Class xx

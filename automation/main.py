@@ -4,13 +4,16 @@ from automation.create_github_repo import create_github_repo
 from automation.user_prompts import user_prompts
 from automation.create_pip_install import create_pip_install
 from automation.create_readme import create_readme
-from automation.readings_scraper.readings_scraper import create_reading_assignment
+from automation.readings_scraper.readings_scraper import readings_scraper
 from automation.check_gh_stuff import check_gh_user, check_gh_repo_exists
 from rich.console import Console
 from rich.prompt import Prompt
 
 
 def main():
+    """
+    Main function to present options to the user and perform actions based on their choice.
+    """
     console = Console()
     while True:
         console.print("\n1. [bold green]Create Lab Repo[/bold green]\n2. [bold blue]Create Reading Assignment[/bold blue]\n3. [bold red]Exit[/bold red]")
@@ -19,14 +22,15 @@ def main():
         if choice == '1':
             create_lab_repo()
         elif choice == '2':
-            console.print("Which class number would you like to create a reading assignment for?", style = "dodger_blue1")
-            class_num = input("> ")
-            create_reading_assignment(class_num)
+            readings_scraper()
         else:
             break
     
 
 def create_lab_repo():
+    """
+    Function to create a lab repository with necessary files and configurations.
+    """
     # Function calls
     directory, username, repo_name, pip_installs = user_prompts()
     init_local_repo(directory, repo_name)

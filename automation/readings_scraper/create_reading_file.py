@@ -1,42 +1,46 @@
 import os
+from tkinter import filedialog
 from rich.console import Console
-# from automation.main import main
+from automation.readings_scraper.choose_file_name import choose_file_name
+from automation.readings_scraper.choose_directory import choose_directory
 
 console = Console()
 
 def create_reading_file(title, class_num, questions, readings, videos, bookmarks):
-   
-    user_directory = os.path.abspath(f'../{os.curdir}')
-    file_name = f"reading{class_num}.md"
-    folder_path = os.path.join(f'{user_directory}/reading_assignments')
-    file_path = os.path.join(f'{folder_path}/{file_name}')
+    """
+    Create a reading file with the provided elements.
 
-    if not os.path.exists(folder_path):
-        os.makedirs(folder_path)
-    
-    if os.path.exists(file_path):
-        console.print("\nThis file already exists.", style="bold red")
-        user_input= input("Would you like to overwrite it? (y/n): ")
-        
-        if user_input == "y":
-            console.print("File will be overwritten.", style="bold yellow")
-        
-        elif user_input == "n":
-            console.print("File not created.", style="bold green")
-            create_reading_file(title, class_num, questions, readings, videos, bookmarks)
+    Args:
+        title (str): The title of the reading assignment.
+        class_num (str): The class number associated with the reading assignment.
+        questions (str): Questions related to the reading assignment.
+        readings (str): Readings for the assignment.
+        videos (str): Videos related to the assignment.
+        bookmarks (str): Bookmark and review links.
 
-        else:
-            console.print("Response not recognized. Returning to main menu.", style="bold red")
-            create_reading_file(title, class_num, questions, readings, videos, bookmarks)
-
-    create_template (title, questions, readings, videos, bookmarks, file_path)
+    """
+    file_name = choose_file_name(class_num)
+    file_path = choose_directory(file_name)
+    if not file_path:
+        return
+    create_template(title, questions, readings, videos, bookmarks, file_path)
 
 
 def create_template(title, questions, readings, videos, bookmarks, file_path):
+    """
+    Create a template for the reading file.
 
+    Args:
+        title (str): The title of the reading assignment.
+        questions (str): Questions related to the reading assignment.
+        readings (str): Readings for the assignment.
+        videos (str): Videos related to the assignment.
+        bookmarks (str): Bookmark and review links.
+        file_path (str): The path where the reading file will be saved.
+
+    """
     # Define the template
-    template = f"""
-# {title}
+    template = f"""# {title}
 
 Description of the assignment
 
@@ -58,7 +62,5 @@ Description of the assignment
 """
 
     with open(file_path, "w") as file:
-        file.write(f"# {template}")
-        console.print('File created successfully!', style = "bold spring_green3")
-        
-
+        file.write(f"{template}")
+        console.print('File created successfully!', style="bold spring_green3")
