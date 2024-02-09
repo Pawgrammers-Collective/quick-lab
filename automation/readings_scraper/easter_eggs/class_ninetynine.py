@@ -1,6 +1,9 @@
 import shutil
+import tkinter
+import os
+from tkinter import filedialog
 from rich.console import Console
-from automation.readings_scraper.choose_directory import choose_directory
+
 
 console = Console()
 
@@ -16,7 +19,11 @@ def class_ninetynine():
     """
     console.print("You have chosen class 99. Prepare for rain.", style="dark_magenta")
     file_name = "class99.png"
-    file_path = choose_directory(file_name)
+    root = tkinter.Tk()
+    directory = filedialog.askdirectory(title="Choose the folder for your class99 file", parent=root)
+    root.withdraw()
+    file_path = os.path.join(f'{directory}/{file_name}')
+    
     if not file_path:
         return
 
