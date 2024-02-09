@@ -31,10 +31,10 @@ def readings_scraper():
         return surprise_me()
     elif not class_num.isdigit():
         console.print("You must enter a class number (01-42).", style="bold red")
-        readings_scraper()
+        return readings_scraper()
     elif int(class_num) < 1 or int(class_num) > 42:
         console.print("You must enter a class number (01-42).", style="bold red")
-        readings_scraper()
+        return readings_scraper()
             
     url = f"https://codefellows.github.io/code-401-python-guide/curriculum/class-{class_num}/DISCUSSION"
     
