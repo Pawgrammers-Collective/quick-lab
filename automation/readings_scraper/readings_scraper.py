@@ -1,6 +1,6 @@
+from rich.console import Console
 from automation.readings_scraper.scrape_elements import get_title, get_questions, get_readings, get_videos, get_bookmarks
 from automation.readings_scraper.create_reading_file import create_reading_file
-from rich.console import Console
 from automation.readings_scraper.easter_eggs.class_ninetynine import class_ninetynine
 from automation.readings_scraper.easter_eggs.class_301 import class_301
 from automation.readings_scraper.easter_eggs.surprise_me import surprise_me
