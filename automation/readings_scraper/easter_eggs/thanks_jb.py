@@ -14,7 +14,7 @@ def thanks_jb():
     Returns:
         None
     """
-    console.print("Shout out to JB!", style="magenta1")
+    console.print("Shout out to JB! Choose a location for your JB image file", style="magenta1")
     file_name = "thanks-JB.png"
     root = tkinter.Tk()
     directory = filedialog.askdirectory(title="Choose the folder for your 'thanks-JB' file", parent=root)

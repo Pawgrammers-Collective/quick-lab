@@ -17,7 +17,7 @@ def class_ninetynine():
     Returns:
         None
     """
-    console.print("You have chosen class 99. Prepare for rain.", style="dark_magenta")
+    console.print("You have chosen class 99. Prepare for rain. Choose a location for your image file.", style="dark_magenta")
     file_name = "class99.png"
     root = tkinter.Tk()
     directory = filedialog.askdirectory(title="Choose the folder for your class99 file", parent=root)
