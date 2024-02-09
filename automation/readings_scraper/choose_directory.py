@@ -22,15 +22,15 @@ def choose_directory(file_name):
     """
     console = Console()
     console.print("\nThis program will create a 'reading_assignments' folder for you at the same level as this program if one doesn't already exist. Would you like to choose a different folder for your reading assignment file instead? (y/n):", style="bold blue")
-    choose_directory = input("> ")
+    directory_choice = input("> ")
 
-    if choose_directory.lower() in ["y", "yes"]:
+    if directory_choice.lower() in ["y", "yes"]:
         root = tkinter.Tk()
         directory = filedialog.askdirectory(title="Choose your folder for your reading assignment file", parent=root)
         root.withdraw()
         file_path = os.path.join(f'{directory}/{file_name}')
     
-    elif choose_directory.lower() in ["n", "no"]:
+    elif directory_choice.lower() in ["n", "no"]:
         console.print(f"Ok! Your file will be placed in the 'reading_assignments' folder.", style="bold yellow")
         directory = os.path.abspath(f'../{os.curdir}')
         folder_path = os.path.join(f'{directory}/reading_assignments')
