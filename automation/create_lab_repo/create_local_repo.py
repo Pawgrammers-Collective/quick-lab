@@ -4,6 +4,7 @@ from rich.console import Console
 from rich.progress import Progress
 from time import sleep
 from automation.create_lab_repo.templates import test_file_template, file_template
+from automation.create_lab_repo.user_prompts import user_prompts
 
 console = Console()
 progress = Progress()
@@ -24,11 +25,8 @@ def init_local_repo(directory, name):
     if not os.path.exists(directory):
         os.makedirs(directory)
     else:
-        print("Directory exists already")
-        print("Would you like to still initialize a local repository in that directory? (y/n)")
-        user_choice = input("> ")
-        if user_choice.lower() == "n":
-            return False
+        print("Directory exists already use a different name")
+        return user_prompts()
         
     # Run git init command in the newly made directory
     completed_process_confirm = subprocess.run(['git', 'init'], cwd=directory)
