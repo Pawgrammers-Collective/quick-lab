@@ -1,6 +1,4 @@
-import os 
-import shutil
-import platform
+import os
 
 def create_gitignore(directory='.'):
     """
