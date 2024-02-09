@@ -32,4 +32,11 @@
 
 2. `2. Create Reading Assignment` - Will create a reading assignment template in the directory of your choosing.  
 
-3. `3. Exit` Exits the application
+3. `3. Exit` Exits the application.
+
+*Our program has some easter eggs! When prompted to choose a class number for a reading assignment, you can try the following:*
+    - '99'
+    - '301'
+    - 'suprise me'
+    - 'thanks JB'
+    - '42' this will still create the reading assignment for class 42, but give you a special message beforehand.

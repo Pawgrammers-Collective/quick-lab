@@ -1,9 +1,10 @@
-from tkinter import filedialog
-import os
+from rich.console import Console
 from automation.readings_scraper.scrape_elements import get_title, get_questions, get_readings, get_videos, get_bookmarks
 from automation.readings_scraper.create_reading_file import create_reading_file
-from rich.console import Console
 from automation.readings_scraper.easter_eggs.class_ninetynine import class_ninetynine
+from automation.readings_scraper.easter_eggs.class_301 import class_301
+from automation.readings_scraper.easter_eggs.surprise_me import surprise_me
+from automation.readings_scraper.easter_eggs.thanks_jb import thanks_jb
 
 def readings_scraper():
     """
@@ -20,6 +21,14 @@ def readings_scraper():
     class_num = input("> ")
     if class_num == "99":
         return class_ninetynine()
+    elif class_num == "301":
+        return class_301()
+    elif class_num == "42":
+        console.print("The answer to life, the universe, and everything is 42", style="bold green")
+    elif class_num.lower() == "thanks jb" or class_num.lower() == "thanksjb":
+        return thanks_jb()
+    elif class_num.lower() == "surprise me" or class_num.lower() == "surpriseme":
+        return surprise_me()
     elif not class_num.isdigit():
         console.print("You must enter a class number (01-42).", style="bold red")
         readings_scraper()

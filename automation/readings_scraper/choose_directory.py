@@ -40,7 +40,7 @@ def choose_directory(file_name):
     
     else:
         console.print("Response not recognized. Returning to folder directory prompt.", style="bold red")
-        choose_directory()
+        choose_directory(file_name)
     
     
     if os.path.exists(file_path):
@@ -56,6 +56,6 @@ def choose_directory(file_name):
 
         else:
             console.print("Response not recognized. Returning to folder directory prompt.", style="bold red")
-            choose_directory()
+            choose_directory(file_name)
 
     return file_path
