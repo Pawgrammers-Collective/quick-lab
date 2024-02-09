@@ -26,13 +26,12 @@ def choose_file_name(class_num):
         file_name = input("Your file name must end in '.md'. Please enter your file name: ")
         if not file_name.endswith(".md"):
             console.print("Oops! Invalid file name. Your file name must end with '.md'. Returning to the file name prompt.", style="bold red")
-            file_name = f"reading{class_num}.md"
-            choose_file_name(class_num)
+            return choose_file_name(class_num)
         else:
             console.print(f"Ok! Your file name is '{file_name}'.")
 
     else:
         console.print("Response not recognized. Returning to the file name prompt.", style="bold red")
-        choose_file_name(class_num)
+        return choose_file_name(class_num)
     
     return file_name
